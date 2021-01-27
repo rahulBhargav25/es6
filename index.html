@@ -10,14 +10,31 @@
               document.cookie = "name = " + cookievalue;
               document.write ("Serring Cookies : " + " name = " + cookievalue );
           }
+
+          function ReadCookie() {
+              var allcookies = document.cookie;
+              document.write ("All Cookies : " + allcookies );
+          }
+          //get all the cookies pairs in the array
+          cookiearray = allcookies.split(';');
+          //now take a key value pair out of this array
+          for(var i = 0; i<cookiearray.length; i++) {
+              name = cookiearray[i].split('=')[0];
+              value = cookiearray[i].split('=')[1];
+              document.write ("Key is : " + name + " and the value is : " + value);
+          }
          
-      </script>
+       </script>
    </head>
 
    <body>
       <form name = "myform" action = "">
           Enter name : <input type = "text" name = "customer"/>
          <input type="button" value="set" onclick = "WriteCookie();" />
+      </form>
+      <form name="myform" action="">
+        <p> click the following button and see the result: </p>
+        <input type= "button" value = "Get cookie" onclick="ReadCookie()"/>
       </form>
    </body>
 </html>
